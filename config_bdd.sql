@@ -15,21 +15,21 @@ CREATE TABLE
         `prenom` varchar(255) NOT NULL,
         `date_naissance` date NOT NULL,
         `sexe` enum ('M', 'F') NOT NULL,
-        'niveau' enum (
+        `niveau` enum (
             'L1',
             'L2',
             'L3',
             'M1',
             'M2, D, BUT1, BUT2, BUT3, DU1, DU2, DU3'
         ) NOT NULL,
-        'formation' varchar(255) NOT NULL,
-        'composante' enum ('FST', 'FLLASH', 'FDSPM (DROIT - IAE)', 'IUT') NOT NULL,
-        'mail' varchar(255) NOT NULL,
-        'tel' varchar(255) NOT NULL,
-        'date_adhesion' date NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        'date_delivrance' date NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        'date_fin_adhesion' date NOT NULL DEFAULT CURRENT_TIMESTAMP + INTERVAL 1 YEAR,
-        'id_benevole' int (11),
+        `formation` varchar(255) NOT NULL,
+        `composante` enum ('FST', 'FLLASH', 'FDSPM (DROIT - IAE)', 'IUT') NOT NULL,
+        `mail` varchar(255) NOT NULL,
+        `tel` varchar(255) NOT NULL,
+        `date_adhesion` date NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `date_delivrance` date NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        `date_fin_adhesion` date NOT NULL DEFAULT CURRENT_TIMESTAMP + INTERVAL 1 YEAR,
+        `id_benevole` int (11),
         PRIMARY KEY (`id`),
         FOREIGN KEY (`id_benevole`) REFERENCES `benevoles` (`no_adherent`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
@@ -110,6 +110,7 @@ CREATE TABLE
         `username` varchar(255) NOT NULL,
         `password` varchar(255) NOT NULL,
         `role` JSON NOT NULL DEFAULT '["ROLE_USER"]',
+        `id_adherent` int (11) DEFAULT NULL,
         PRIMARY KEY (`id`)
     ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
 
